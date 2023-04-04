@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WeatherApp</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+    <script
+      src="https://kit.fontawesome.com/219fe0082b.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="weather-app">
+        <form id="search-form">
+          <div class="row search-row">
+            <div class="col-7">
+              <input
+                type="search"
+                placeholder="Type a city:"
+                autofocus="on"
+                class="form-control"
+                id="search-input"
+              />
+            </div>
+            <div class="col-3">
+              <input type="submit" value="Search" class="form-control" />
+            </div>
+            <div class="col-2">
+              <button id="current-location-button" class="form-control">
+                <i class="fa-solid fa-location-dot"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="row second-row">
+            <ul class="city-list">
+              <small id="mostSearched" class="form-text text-muted">
+                Most searched:
+                <li class="cities"><a href="#" id="paris-city"> Paris</a></li>
+                <li class="cities"><a href="#" id="rome-city"> Rome</a></li>
+                <li class="cities"><a href="#" id="kyiv-city"> Kyiv</a></li>
+              </small>
+            </ul>
+          </div>
+
+          <div class="main">
+            <div class="row">
+              <div class="col-7">
+                <div class="hash">
+                  <span id="current-day"></span>
+                  <span id="current-time"></span>
+                </div>
+                <h2 class="main-city" id="current-city"><br /></h2>
+                <div>
+                  <span class="temperature" id="temperature"></span
+                  ><span class="units"
+                    ><a href="#" id="celsius">°C</a>|
+                    <a href="#" id="fahrenheit">°F</a></span
+                  >
+                </div>
+                <div class="hash">
+                  <span class="weather-icon"> </span>
+                  <span
+                    class="weather-description"
+                    id="weather-description"
+                  ></span>
+                </div>
+              </div>
+
+              <div class="col-5">
+                <ul class="weather-details">
+                  <li class="li-details">
+                    <i class="fa-solid fa-temperature-arrow-up"></i>:
+                    <span id="hiTemperature"></span>
+                  </li>
+                  <li class="li-details">
+                    <i class="fa-solid fa-temperature-arrow-down"></i>:
+                    <span id="lowTemperature">°C</span>
+                  </li>
+                  <li class="li-details">
+                    <i class="fa-solid fa-temperature-half"></i>:
+                    <span id="feelsTemperature"></span>
+                  </li>
+
+                  <li class="li-details">
+                    <i class="fa-solid fa-wind"></i>:
+                    <span id="wind"></span>
+                  </li>
+                  <li class="li-details">
+                    <i class="fa-solid fa-cloud-sun"></i>:
+                    <span id="clouds"></span>
+                  </li>
+                  <li class="li-details">
+                    <i class="fa-solid fa-water"></i>:
+                    <span id="humidity"></span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-2 days-list" id="first-day">
+              Mon <br />
+              15°C <br />9°C
+            </div>
+            <div class="col-2 days-list" id="second-day">
+              Tue <br />
+              15°C <br />9°C
+            </div>
+            <div class="col-2 days-list" id="third-day">
+              Wed <br />
+              15°C <br />9°C
+            </div>
+            <div class="col-2 days-list" id="fourth-day">
+              Thu <br />
+              15°C <br />9°C
+            </div>
+            <div class="col-2 days-list" id="fifth-day">
+              Fri <br />
+              15°C <br />9°C
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>
