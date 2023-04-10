@@ -33,6 +33,7 @@
   margin: 40px auto;
   max-width: 630px;
   font-family: "Roboto", sans-serif;
+  margin-bottom: 0;
 }
 .main-city {
   margin-top: 15px;
@@ -82,4 +83,9 @@
 #current-time {
   font-weight: bold;
   font-size: 20px;
+}
+#bottom-link {
+  display: block;
+
+  font-family: "Roboto", sans-serif;
 }
