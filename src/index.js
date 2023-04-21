@@ -71,7 +71,7 @@ function showValues(response) {
     "src",
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-  console.log(response.data);
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 function defaultCity(definedCity) {
   let units = `metric`;
