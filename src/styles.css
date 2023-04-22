@@ -63,21 +63,12 @@
 .units {
   position: relative;
   top: -32px;
+  text-decoration: none;
 }
 .temperature {
   font-size: 64px;
   font-weight: 400;
   line-height: 1;
-}
-#fahrenheit,
-#celsius {
-  text-decoration: none;
-  color: black;
-}
-
-#fahrenheit:hover,
-#celsius:hover {
-  text-decoration: underline;
 }
 
 #current-time {
@@ -86,6 +77,15 @@
 }
 #bottom-link {
   display: block;
-
   font-family: "Roboto", sans-serif;
+}
+.units .active {
+  color: black;
+  cursor: default;
+}
+.units .active:hover {
+  text-decoration: none;
+}
+a:link {
+  text-decoration: none;
 }
