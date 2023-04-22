@@ -18,27 +18,31 @@ if (minutes < 10) minutes = "0" + minutes;
 let currentTime = `${hours}:${minutes}`;
 document.querySelector("#current-time").innerHTML = `${currentTime}`;
 
-function showCelsius(number) {
-  return number;
-}
-showCelsius(10);
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
 
-function celsiusEvent() {
-  document.querySelector(`#temperature`).innerHTML = showCelsius(10);
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheiTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheiTemperature);
 }
-document.querySelector(`#celsius`).addEventListener("click", celsiusEvent);
 
-function showFahrenheit(numbers) {
-  return numbers;
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
-showFahrenheit(40);
 
-function fahrenheitEvent() {
-  document.querySelector(`#temperature`).innerHTML = showFahrenheit(40);
-}
-document
-  .querySelector(`#fahrenheit`)
-  .addEventListener("click", fahrenheitEvent);
+let celsiusTemperature = null;
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 function showValues(response) {
   document.querySelector("#temperature").innerHTML = Math.round(
