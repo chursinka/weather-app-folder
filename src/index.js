@@ -17,7 +17,27 @@ if (hours < 10) hours = "0" + hours;
 if (minutes < 10) minutes = "0" + minutes;
 let currentTime = `${hours}:${minutes}`;
 document.querySelector("#current-time").innerHTML = `${currentTime}`;
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+              <div class="col-2 days-list">
+                <div class="weather-forecast-date">${day}<br /></div>
+                <img src="#" alt="weather-icon" />
+                <div class="weather-forecast-temperature"> <span class="weather-forecast-temperature-max"> 15°C </span>
+                <span class="weather-forecast-temperature-min">9°C</span>
+                </div>
+      
+            </div>`;
+  });
 
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
@@ -43,6 +63,12 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
+function getForecast(coordinates) {
+  let apiKey = `616b14cbd38253313b3b8852fa77335d`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&unit=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+}
 
 function showValues(response) {
   document.querySelector("#temperature").innerHTML = Math.round(
@@ -76,7 +102,9 @@ function showValues(response) {
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+  getForecast(response.data.coord);
 }
+
 function defaultCity(definedCity) {
   let units = `metric`;
   let apiKey = `a33b693cfbefd271b0ed075f9a8f65f0`;
@@ -127,3 +155,4 @@ function getKyiv() {
   axios.get(kyivUrl).then(showValues);
 }
 document.querySelector(`#kyiv-city`).addEventListener("click", getKyiv);
+displayForecast();
