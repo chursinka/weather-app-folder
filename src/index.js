@@ -17,7 +17,8 @@ if (hours < 10) hours = "0" + hours;
 if (minutes < 10) minutes = "0" + minutes;
 let currentTime = `${hours}:${minutes}`;
 document.querySelector("#current-time").innerHTML = `${currentTime}`;
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
   let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
