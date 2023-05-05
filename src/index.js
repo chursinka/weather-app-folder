@@ -40,7 +40,7 @@ function displayForecast(response) {
                 )}<br /></div>
                 <img src="http://openweathermap.org/img/wn/${
                   forecastDay.weather[0].icon
-                }@2x.png" alt="weather-icon" width="42" />
+                }@2x.png" alt="weather-icon" width="50" />
                 <div class="weather-forecast-temperature"> <span class="weather-forecast-temperature-max"> ${Math.round(
                   forecastDay.temp.max
                 )}° </span>
