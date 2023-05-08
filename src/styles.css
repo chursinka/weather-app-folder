@@ -77,6 +77,7 @@
 #bottom-link {
   display: block;
   font-family: "Roboto", sans-serif;
+  text-align: center;
 }
 .weather-forecast-temperature-min {
   color: rgb(72, 72, 74, 0.6);
